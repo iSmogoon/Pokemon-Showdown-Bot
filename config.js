@@ -4,7 +4,7 @@
 // If you really don't know how to do this... Run `node getserver.js URL`.
 // Fill in the URL of the client where `URL` is.
 // For example: `node getserver.js http://example-server.psim.us/`
-exports.server = 'sim.psim.us';
+exports.server = 'sim.smogon.com';
 exports.port = 8000;
 
 // This is the server id.
@@ -17,27 +17,27 @@ exports.serverid = 'showdown';
 
 // The nick and password to log in with
 // If no password is required, leave pass empty
-exports.nick = 'Example bot nick';
-exports.pass = '';
+exports.nick = 'MafGoonBott';
+exports.pass = '8a5Gtz4';
 
 // The rooms that should be joined.
 // Joining Smogon's Showdown's Lobby is not allowed.
-exports.rooms = ['example room name', 'another example'];
+exports.rooms = ['mafia'];
 
 // Any private rooms that should be joined.
 // Private rooms will be moderated differently (since /warn doesn't work in them).
 // The bot will also avoid leaking the private rooms through .seen
-exports.privaterooms = [];
+exports.privaterooms = [''];
 
 // The character text should start with to be seen as a command.
 // Note that using / and ! might be 'dangerous' since these are used in
 // Showdown itself.
 // Using only alphanumeric characters and spaces is not allowed.
-exports.commandcharacter = '.';
+exports.commandcharacter = '#';
 
 // The default rank is the minimum rank that can use a command in a room when
 // no rank is specified in settings.json
-exports.defaultrank = '%';
+exports.defaultrank = '+';
 
 // Whether this file should be watched for changes or not.
 // If you change this option, the server has to be restarted in order for it to
@@ -55,21 +55,21 @@ exports.secprotocols = [];
 // 3 = error, ok, info (recommended for production)
 // 4 = error, ok
 // 5 = error
-exports.debuglevel = 3;
+exports.debuglevel = 2;
 
 // Users who can use all commands regardless of their rank. Be very cautious
 // with this, especially on servers other than main.
 exports.excepts = [];
 
 // Whitelisted users are those who the bot will not enforce moderation for.
-exports.whitelist = [];
+exports.whitelist = ['smogoon', 'thewhodoctor'];
 
 // Users in this list can use the regex autoban commands. Only add users who know how to write regular expressions and have your complete trust not to abuse the commands.
 exports.regexautobanwhitelist = [];
 
 // Add a link to the help for the bot here. When there is a link here, .help and .guide
 // will link to it.
-exports.botguide = '';
+exports.botguide = 'http://pastebin.com/X3TcMGNG';
 
 // Add a link to the git repository for the bot here for .git to link to.
 exports.fork = 'http://github.com/TalkTakesTime/Pokemon-Showdown-Bot';
@@ -80,7 +80,7 @@ exports.fork = 'http://github.com/TalkTakesTime/Pokemon-Showdown-Bot';
 // exercise moderator discretion. In addition, it currently uses a very simple method of 
 // determining who to mute and so may miss people who should be muted, or mute those who 
 // shouldn't. Use with caution.
-exports.allowmute = false;
+exports.allowmute = true;
 
 // The punishment values system allows you to customise how you want the bot to deal with
 // rulebreakers. Spamming has a points value of 2, all caps has a points value of 1, etc.
