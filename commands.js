@@ -45,7 +45,7 @@ exports.commands = {
 			var text = '/pm ' + by + ', ';
 		}
 		if (config.botguide) {
-			text += 'Welcome to the (hopefully) new  Mafia Room bot! This bot was created by TheWhoDoctor and Smogoon. Link to Bot guide: ' + config.botguide;
+			text += 'Welcome to the (hopefully) new  Mafia Room bot! This bot was created by Smogoon, Rothuit, and TheWhoDoctor. Link to Bot guide: ' + config.botguide;
 		} else {
 			text += 'There is no guide for this bot. PM the owner with any questions.';
 		}
@@ -836,7 +836,7 @@ exports.commands = {
 			eleclassic: '**EleClassic (by Electrolyte):** http://ps-mafia.weebly.com/EleClassic.html',
 			captain: '**Captain:** http://ps-mafia.weebly.com/captain1.html',
 			pairing: '**Pairing Mafia:** http://ps-mafia.weebly.com/pairing.html',
-			gi: 'Greater Idea Role List:** wiki.mafiascum.net/index.php?title=Greater_Idea_Mafia',
+			gi: '**Greater Idea Role List:** wiki.mafiascum.net/index.php?title=Greater_Idea_Mafia',
 			rollrole: '**Role Roll:** http://ps-mafia.weebly.com/roll-role.html',
 			shifting: '**Shifting:** http://ps-mafia.weebly.com/shifting.html',
 			upick: '**U-Pick:** http://ps-mafia.weebly.com/u-pick.html',
@@ -844,7 +844,7 @@ exports.commands = {
 			ns: '**No Setup:** http://ps-mafia.weebly.com/no-setup.html',
 			esun: '**Eternal Sun:** http://ps-mafia.weebly.com/eternal-sun.html',
 			/**UCTs*/
-			ssb4: '**Smash Bros 4 Mafia (by Smogoon, Stir, and Gligarbro):** (no link, under development)',
+			ssb4: '**Smash Bros 4 Mafia (by Smogoon, Stir, Gligarbro, and Kevikevkev):** (no link, under development)',
 			ssb: '**Smash Bros Mafia (by Aelita and Champ):** http://tinyurl.com/ssbmaf',
 			clue: '**Clue Mafia (by snackismybae):** tinyurl.com/ClueMafia',
 			gipick: '**GIPick: See the GI rolelist, then pick your own role based on your side!** wiki.mafiascum.net/index.php?title=Greater_Idea_Mafia',
@@ -859,6 +859,8 @@ exports.commands = {
 			sonic: '**Sonic Mafia (by TheGrimNinja):** http://bit.ly/1Ewz0PR',
 			anarchy: '**Anarchy Mafia (by Gligarbro):** http://tinyurl.com/AnarchyMoofia',
 			civilunrest: '**Civil Unrest Mafia (by SlimShadow):** http://goo.gl/jBOfrw',
+			fruittrade: '**Fruit Trade Mafia (by snackismybae and smogoon**): http://tinyurl.com/FruitVendorOS',
+			train: '**Train Mafia (by Cyberknight98):** http://tinyurl.com/mafiatrain',
 		};
 		text += messages[toId(arg)] || '???';
 		this.say(room, text);
@@ -1027,10 +1029,21 @@ themerl: 'maftheme',
 			sonic9:  '**Eggman, Shadow, Sonic, Tails, Silver, Vector, Blaze, Amy, Rouge**',
 			sonic10: '**Eggman, Shadow, Sonic, Tails, Silver, Vector, Blaze, Knuckles, Amy, Rouge**',
 			sonic11: '**Eggman, Shadow, Metal Sonic, Sonic, Tails, Silver, Vector, Blaze, Knuckles, Amy, Rouge**',
+			fruittrade6: '**1 Mafia Fruit Vendor, 1 Mafia PL, 2 Fruit Vendor, 1 Tracker, 1 Watcher (begins night 0)**',
+			fruittrade7: '**1 Mafia Fruit Vendor, 1 Mafia PL, 3 Fruit Vendor, 1 Tracker, 1 Watcher, 1 Fruit Storer**',
+			fruittrade8: '**1 Mafia Fruit Vendor, 1 Mafia PL, 4 Fruit Vendor, 1 Tracker, 1 Watcher, 1 Fruit Storer**',
+			fruittrade9: '**1 Mafia Fruit Vendor, 1 Mafia PL, 4 Fruit Vendor, 1 Tracker, 1 Watcher, 1 Fruit Storer**',
+			fruittrade10: '**1 Mafia Parrot, 1 Mafia Fruit Vendor, 1 Mafia PL, 3 Fruit Vendor, 1 Tracker, 1 Watcher, 1 Fruit Storer**',
+			fruittrade11: '**1 Mafia Parrot, 1 Mafia Fruit Vendor, 1 Mafia PL, 4 Fruit Vendor, 1 Tracker, 1 Watcher, 1 Fruit Storer**',
+			fruittrade12: '**1 Mafia Parrot, 1 Mafia Fruit Vendor, 1 Mafia PL, 5 Fruit Vendor, 1 Tracker, 1 Watcher, 1 Fruit Storer**',
+			fruittrade13: '**1 Mafia Parrot, 1 Mafia Fruit Vendor, 1 Mafia PL, 6 Fruit Vendor, 1 Tracker, 1 Watcher, 1 Fruit Storer**',
+			fruittrade14: '**2 Mafia Parrots, 1 Mafia Fruit Vendor, 1 Mafia PL, 6 Fruit Vendor, 1 Tracker, 1 Watcher, 1 Fruit Storer**',
+			fruittrade15: '**2 Mafia Parrots, 1 Mafia Fruit Vendor, 1 Mafia PL, 7 Fruit Vendor, 1 Tracker, 1 Watcher, 1 Fruit Storer**',
 };
 		text += messages[toId(arg)] || '???';
 		this.say(room, text);
 	},
+
 	
 r: 'rolelist',
 roles: 'rolelist',
@@ -1242,7 +1255,7 @@ mhost: 'mafiahost',
     clearhost: function(arg, by, room){
     	if(!this.hasRank(by, '%@#&~') && mafhost.indexOf(toId(by)) < 0) return false;
     	mafhost = [];
-    	this.say(room, 'Thanks for hosting with MafGoonBott.  (@' + toId(arg) + ')');
+    	this.say(room, 'Thanks for hosting with MafGoonBott.');
     	fs.writeFileSync('data/hostlist.txt', '');
     	var tarDate = new Date();
     	fs.appendFile('data/hostlogs.txt', '[' + tarDate + '] ' + by + ' reset all these hosts.' + '\n')
@@ -1266,10 +1279,16 @@ mhost: 'mafiahost',
 		var choice = choices[Math.floor(Math.random()*choices.length)];
 		this.say(room, ((this.canUse('choose', room, by) || room.charAt(0) === ',') ? '':'/pm ' + by + ', ') + stripCommands(choice));
 	},
+
+
 	rtheme: 'randomtheme',
 	randomt: 'randomtheme',
 	'randomtheme': function(arg, by, room) {
 		if (this.canUse('8ball', room, by) || room.charAt(0) === ',') {
+		if(!arg) return false;
+    	if(!this.hasRank(by, '%@#&~') && mafhost.indexOf(toId(by)) < 0) return false;
+		if (config.serverid !== 'showdown') return true;
+		
 			var text = '';
 		} else {
 			var text = '/pm ' + by + ', ';
@@ -1301,8 +1320,10 @@ mhost: 'mafiahost',
 		}
 		this.say(room, text);
 	},
-
+	
     d: 'roll',
+	giroll: 'roll',
+	gir: 'roll',
     r: 'roll',
     dice: 'roll',
     roll: function(arg, by, room){
@@ -1333,4 +1354,30 @@ mhost: 'mafiahost',
     		this.say(room, text + ' **Roll:** ' + random);
     	}
     },
+	
+gpc: 'goonsprivatecommands',
+goons: 'goonsprivatecommands',
+privategoon: 'goonsprivatecommands',
+goonscommands: 'goonsprivatecommands',
+	goonsprivatecommands: function(arg, by, room) {
+		if(!arg) return false;
+    	if(!this.hasRank(by, '&~') && mafhost.indexOf(toId(by)) < 0) return false;
+		if (config.serverid !== 'showdown') return true;
+		var text = '';
+		var messages = {
+			vendortables: 'http://tinyurl.com/FruitVendorTables',
+			cluetables: 'http://tinyurl.com/GoonsClueTables',
+			ssb4brain: 'https://docs.google.com/document/d/1JDsNfoFJC9Wr4rpW1KEVQm49dm2E_6ZKEq5IENMDBd0/edit',
+			ssb4dlc: 'no link. goon2lazy',
+			mage: 'Lv: 20, Gd: 140, Shll: 6, Exp: 3, BAtk: +3NRG, 9AB, 107hp, 23NRG, [Grim: 7ab/B/Merc]/[Scrip: BAtk +5nr/4ab/C/Nept]/[Tome: +3nrg/4ab/D/None], Borealis Ring, Ablts: [Arcane Blast/Mana Drink/Magic Charge/Fire Ball/Lightning]',
+		};
+		text += messages[toId(arg)] || 'Commands not found. Please try again when you are Smogoon.';
+		this.say(room, text);
+	},
+	
+	puppies: function(arg, by, room) {
+		var text = config.excepts.indexOf(toId(by)) < 0 ? '/pm ' + by + ', ' : '';
+		text += 'Smogoon\'s Puppies: http://imgur.com/a/rtuBd';
+		this.say(room, text);
+	},
 };
